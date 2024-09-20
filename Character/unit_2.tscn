@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvbx5sgi8tcqq"]
+
+[ext_resource type="Texture2D" uid="uid://8t0djb5h0ccn" path="res://Images/Character/FalmeUnit.png" id="1_ogb0x"]
+
+[node name="Unit_2" type="CharacterBody2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_ogb0x")
+hframes = 4
+vframes = 7

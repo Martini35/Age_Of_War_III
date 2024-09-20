@@ -2,10 +2,16 @@ extends Node2D
 
 @onready var camera = $Camera2D
 @onready var LeftSpawn = $LeftSpawn
+@onready var RightSpawn = $RightSpawn
 @onready var gui = $Camera2D/GUI
 
-var unit = preload("res://Character/unit_1.tscn")
+var unit1 = preload("res://Character/unit_1.tscn")
+var enemy1 = preload("res://Character/unit_1_enemy.tscn")
+var unit2 = preload("res://Scean/flame_progectile.tscn")
 
+@onready var canSpawn = true
+
+var arr: Array
 
 func _ready():
 	pass
@@ -13,20 +19,36 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("A"):
-		camera.position.x -= 1
+		if camera.position.x > 340:
+			camera.position.x -= 1
 		
 	if Input.is_action_pressed("D"):
-		camera.position.x += 1
-
-	if Input.is_action_just_pressed("Space"):
-		spawnUnit()
-
-
-func spawnUnit():
-	pass
-
+		if camera.position.x < 635:
+			camera.position.x += 1
+		
+	if canSpawn:
+		spawnEnemy()
+		
 
 func _on_gui_button_1_preset():
-	var unit1 = unit.instantiate()
-	unit1.position = LeftSpawn.global_position
-	add_child(unit1)
+	var unit = unit1.instantiate()
+	unit.position = LeftSpawn.global_position
+	add_child(unit)
+
+
+func _on_gui_button_2_preset():
+	var unit = unit2.instantiate()
+	unit.position = LeftSpawn.global_position
+	add_child(unit)
+
+
+func spawnEnemy():
+	canSpawn = false
+	var enemy = enemy1.instantiate()
+	enemy.position = RightSpawn.global_position
+	add_child(enemy)
+	await get_tree().create_timer(3).timeout
+	canSpawn = true
+
+
+

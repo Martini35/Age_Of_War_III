@@ -1,54 +1,54 @@
-[gd_scene load_steps=12 format=3 uid="uid://cna18ttr6si05"]
+[gd_scene load_steps=12 format=3 uid="uid://mr4cuu17f8ia"]
 
-[ext_resource type="Texture2D" uid="uid://bvs7fhqmal8hi" path="res://Images/Character/SpriteSheet.png" id="2_04el1"]
-[ext_resource type="Script" path="res://Script/unit_1.gd" id="2_rkmge"]
-[ext_resource type="Texture2D" uid="uid://f4pxkcug72sj" path="res://Images/Wepon/katana.png" id="3_r04h1"]
-[ext_resource type="Texture2D" uid="uid://bs618ircseuvh" path="res://Images/UI/healthbarUnder.png" id="4_qivgm"]
-[ext_resource type="Texture2D" uid="uid://ch2hwm4w0yg71" path="res://Images/UI/healthbarProgress.png" id="5_yvav4"]
+[ext_resource type="Script" path="res://Script/unit_1_enemy.gd" id="1_4edi8"]
+[ext_resource type="Texture2D" uid="uid://bvs7fhqmal8hi" path="res://Images/Character/SpriteSheet.png" id="2_01cy2"]
+[ext_resource type="Texture2D" uid="uid://f4pxkcug72sj" path="res://Images/Wepon/katana.png" id="3_c2n2g"]
+[ext_resource type="Texture2D" uid="uid://bs618ircseuvh" path="res://Images/UI/healthbarUnder.png" id="4_5jibv"]
+[ext_resource type="Texture2D" uid="uid://ch2hwm4w0yg71" path="res://Images/UI/healthbarProgress.png" id="5_ky7wo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrje1"]
-size = Vector2(14, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8js1c"]
+size = Vector2(14, 14.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc1oj"]
-size = Vector2(10, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qgyn"]
+size = Vector2(11.75, 14.5)
 
-[sub_resource type="Animation" id="Animation_yjim8"]
+[sub_resource type="Animation" id="Animation_0564h"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Wepon:position")
+tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(11, -7)]
+"update": 1,
+"values": [2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Wepon:rotation")
+tracks/1/path = NodePath("Wepon:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.1973]
+"values": [Vector2(-11, -7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body:frame")
+tracks/2/path = NodePath("Wepon:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
+"update": 0,
+"values": [-1.1973]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -60,10 +60,10 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-1]
+"values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_2g2lm"]
+[sub_resource type="Animation" id="Animation_mshw2"]
 resource_name = "attack"
 length = 0.5
 tracks/0/type = "value"
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(11, -7), Vector2(10, -12), Vector2(7, -16), Vector2(15, -13), Vector2(18, -4), Vector2(11, -7)]
+"values": [Vector2(-11, -7), Vector2(-10, -12), Vector2(-7, -16), Vector2(-15, -13), Vector2(-18, -4), Vector2(-11, -7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -88,7 +88,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.1973, 0.914553, 0.20944, 0.914553, 1.90241, 1.1973]
+"values": [-1.1973, -0.914553, -0.20944, -0.914553, -1.90241, -1.1973]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,8 +103,8 @@ tracks/2/keys = {
 "values": [1, -1]
 }
 
-[sub_resource type="Animation" id="Animation_d1qcs"]
-resource_name = "walk_right"
+[sub_resource type="Animation" id="Animation_drkge"]
+resource_name = "walk_left"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -116,62 +116,61 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [3, 7, 11, 15, 3]
+"values": [2, 6, 10, 14, 10]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3m0ip"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gitv4"]
 _data = {
-"RESET": SubResource("Animation_yjim8"),
-"attack": SubResource("Animation_2g2lm"),
-"walk_right": SubResource("Animation_d1qcs")
+"RESET": SubResource("Animation_0564h"),
+"attack": SubResource("Animation_mshw2"),
+"walk_left": SubResource("Animation_drkge")
 }
 
-[node name="Unit1" type="CharacterBody2D" groups=["Frend"]]
-script = ExtResource("2_rkmge")
+[node name="Unit_1_Enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_4edi8")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("2_04el1")
+texture = ExtResource("2_01cy2")
 hframes = 4
 vframes = 7
-frame = 3
+frame = 2
 
 [node name="Wepon" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(11, -7)
-rotation = 1.1973
-texture = ExtResource("3_r04h1")
+z_index = 1
+position = Vector2(-11, -7)
+rotation = -1.1973
+texture = ExtResource("3_c2n2g")
+flip_h = true
 
 [node name="BoxBody" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
-shape = SubResource("RectangleShape2D_vrje1")
+shape = SubResource("RectangleShape2D_8js1c")
 
 [node name="MeleAttack" type="Area2D" parent="."]
 collision_priority = 5.0
 priority = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleAttack"]
-position = Vector2(15, -7)
-shape = SubResource("RectangleShape2D_xc1oj")
+position = Vector2(-15, -7)
+shape = SubResource("RectangleShape2D_3qgyn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3m0ip")
+"": SubResource("AnimationLibrary_gitv4")
 }
 
-[node name="AttackCooldwon" type="Timer" parent="."]
+[node name="AttackCooldown" type="Timer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-visible = false
-texture_filter = 1
-offset_left = -13.0
-offset_top = -22.0
-offset_right = 13.0
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.0
 offset_bottom = -16.0
-value = 13.0
+value = 37.0
 nine_patch_stretch = true
-texture_under = ExtResource("4_qivgm")
-texture_progress = ExtResource("5_yvav4")
+texture_under = ExtResource("4_5jibv")
+texture_progress = ExtResource("5_ky7wo")
 
 [connection signal="body_entered" from="MeleAttack" to="." method="_on_mele_attack_body_entered"]
 [connection signal="body_exited" from="MeleAttack" to="." method="_on_mele_attack_body_exited"]

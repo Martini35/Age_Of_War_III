@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf43vxh18njtf"]
+[gd_scene load_steps=15 format=3 uid="uid://cf43vxh18njtf"]
 
-[ext_resource type="Texture2D" uid="uid://cftrgghpy28kq" path="res://Images/Button1.png" id="1_58n73"]
-[ext_resource type="Script" path="res://GUI/gui.gd" id="1_xergl"]
-[ext_resource type="Texture2D" uid="uid://cr7d5jwqvpcja" path="res://Images/Faceset.png" id="3_15t4q"]
+[ext_resource type="Script" path="res://Script/gui.gd" id="1_8t15x"]
+[ext_resource type="Texture2D" uid="uid://b17eibv1ff0xn" path="res://Images/Character/unit_1.png" id="2_8388v"]
+[ext_resource type="Texture2D" uid="uid://cq5h5v2h6t4li" path="res://Images/UI/cooldowan_unit_0.png" id="3_x51vv"]
+[ext_resource type="Texture2D" uid="uid://dq3qapf8vd40d" path="res://Images/UI/cooldowan_unit_100.png" id="4_nt7ar"]
+[ext_resource type="Texture2D" uid="uid://cftrgghpy28kq" path="res://Images/UI/Button1.png" id="5_800nm"]
+[ext_resource type="Texture2D" uid="uid://dxhpw5fhkspw0" path="res://Images/Character/unit_2.png" id="6_6tkai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d87p1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y344w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adgne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a04l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_na3em"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwitk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn14s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmdxt"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -11,30 +30,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xergl")
+script = ExtResource("1_8t15x")
 
-[node name="Button" type="Button" parent="."]
+[node name="Unit_1" type="Button" parent="."]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 11.0
-offset_right = 66.0
-offset_bottom = 53.0
+offset_right = 68.0
+offset_bottom = 54.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d87p1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y344w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adgne")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0a04l")
+flat = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Button"]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="Unit_1"]
+position = Vector2(21, 21)
+texture = ExtResource("2_8388v")
+
+[node name="Cooldown_Unit_1" type="TextureProgressBar" parent="Unit_1"]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 41.0
+value = 45.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_x51vv")
+texture_progress = ExtResource("4_nt7ar")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Unit_1"]
+layout_mode = 0
 offset_left = -5.0
 offset_top = -5.0
-offset_right = 48.0
-offset_bottom = 48.0
-texture = ExtResource("1_58n73")
+offset_right = 45.0
+offset_bottom = 45.0
+texture = ExtResource("5_800nm")
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
 
-[node name="Sprite2D" type="Sprite2D" parent="Button/NinePatchRect"]
-position = Vector2(27, 25)
-scale = Vector2(0.671053, 0.671053)
-texture = ExtResource("3_15t4q")
+[node name="Timer_1" type="Timer" parent="Unit_1"]
+one_shot = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Unit_2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 9.0
+offset_right = 128.0
+offset_bottom = 55.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_na3em")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rwitk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nn14s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fmdxt")
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit_2"]
+position = Vector2(22, 24)
+texture = ExtResource("6_6tkai")
+
+[node name="Cooldown_Unit_2" type="TextureProgressBar" parent="Unit_2"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 44.0
+offset_bottom = 43.0
+value = 42.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_x51vv")
+texture_progress = ExtResource("4_nt7ar")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Unit_2"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 47.0
+texture = ExtResource("5_800nm")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Timer_2" type="Timer" parent="Unit_2"]
+one_shot = true
+
+[connection signal="pressed" from="Unit_1" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Unit_1/Timer_1" to="." method="_on_timer_1_timeout"]
+[connection signal="pressed" from="Unit_2" to="." method="_on_unit_2_pressed"]
+[connection signal="timeout" from="Unit_2/Timer_2" to="." method="_on_timer_2_timeout"]
