@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf43vxh18njtf"]
+[gd_scene load_steps=21 format=3 uid="uid://cf43vxh18njtf"]
 
 [ext_resource type="Script" path="res://Script/gui.gd" id="1_8t15x"]
 [ext_resource type="Texture2D" uid="uid://b17eibv1ff0xn" path="res://Images/Character/unit_1.png" id="2_8388v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq3qapf8vd40d" path="res://Images/UI/cooldowan_unit_100.png" id="4_nt7ar"]
 [ext_resource type="Texture2D" uid="uid://cftrgghpy28kq" path="res://Images/UI/Button1.png" id="5_800nm"]
 [ext_resource type="Texture2D" uid="uid://dxhpw5fhkspw0" path="res://Images/Character/unit_2.png" id="6_6tkai"]
+[ext_resource type="Texture2D" uid="uid://pb6h4jhfx57h" path="res://Images/Character/unit_3_art.png" id="7_ucy0l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d87p1"]
 
@@ -22,6 +23,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn14s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmdxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynosp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6l5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eeavv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2foe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54cua"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -116,7 +127,52 @@ patch_margin_bottom = 20
 [node name="Timer_2" type="Timer" parent="Unit_2"]
 one_shot = true
 
+[node name="Unit_3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 6.0
+offset_right = 188.0
+offset_bottom = 54.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ynosp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o6l5h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eeavv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u2foe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_54cua")
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit_3"]
+position = Vector2(23, 25)
+scale = Vector2(1.05263, 1.05263)
+texture = ExtResource("7_ucy0l")
+
+[node name="Cooldown_Unit_3" type="TextureProgressBar" parent="Unit_3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 43.0
+offset_bottom = 45.0
+value = 44.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_x51vv")
+texture_progress = ExtResource("4_nt7ar")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Unit_3"]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 48.0
+offset_bottom = 50.0
+texture = ExtResource("5_800nm")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Timer_3" type="Timer" parent="Unit_3"]
+one_shot = true
+
 [connection signal="pressed" from="Unit_1" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Unit_1/Timer_1" to="." method="_on_timer_1_timeout"]
 [connection signal="pressed" from="Unit_2" to="." method="_on_unit_2_pressed"]
 [connection signal="timeout" from="Unit_2/Timer_2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="Unit_3" to="." method="_on_unit_3_pressed"]
+[connection signal="timeout" from="Unit_3/Timer_3" to="." method="_on_timer_3_timeout"]

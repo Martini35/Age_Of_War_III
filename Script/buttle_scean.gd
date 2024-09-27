@@ -6,12 +6,12 @@ extends Node2D
 @onready var gui = $Camera2D/GUI
 
 var unit1 = preload("res://Character/unit_1.tscn")
+var unit2 = preload("res://Character/unit_2.tscn")
+var unit3 = preload("res://Character/unit_3.tscn")
+
 var enemy1 = preload("res://Character/unit_1_enemy.tscn")
-var unit2 = preload("res://Scean/flame_progectile.tscn")
 
 @onready var canSpawn = true
-
-var arr: Array
 
 func _ready():
 	pass
@@ -42,6 +42,12 @@ func _on_gui_button_2_preset():
 	add_child(unit)
 
 
+func _on_gui_button_3_preset():
+	var unit = unit3.instantiate()
+	unit.position = LeftSpawn.global_position
+	add_child(unit)
+
+
 func spawnEnemy():
 	canSpawn = false
 	var enemy = enemy1.instantiate()
@@ -49,6 +55,9 @@ func spawnEnemy():
 	add_child(enemy)
 	await get_tree().create_timer(3).timeout
 	canSpawn = true
+
+
+
 
 
 

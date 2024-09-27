@@ -1,11 +1,8 @@
-extends CharacterBody2D
-
-class_name frend
+extends frend 
 
 @onready var animacja = $AnimationPlayer
-@onready var attackCooldown = $AttackCooldwon
+@onready var attackCooldown = $AttackCooldown
 @onready var hpBar = $TextureProgressBar
-
 
 @onready var attackBool = false
 @onready var canAttac = true
@@ -16,14 +13,16 @@ class_name frend
 
 
 func _ready():
+	hpBar.max_value = hp
 	hpBar.value = hp
 
 
 func _physics_process(delta):
-	attack()
-	animactrion()
+	if enemys.size() > 0:
+		attack()
+	else:
+		animactrion()
 
-	
 
 func animactrion():
 	if !attackBool && !frendS:
@@ -33,7 +32,7 @@ func animactrion():
 
 
 func attack():
-	if enemys.size() > 0 && canAttac:
+	if canAttac && enemys.size() > 0:
 		attackCooldown.start()
 		animacja.play("attack")
 		enemys[0].takeDamageFromEnemy(10)
@@ -48,7 +47,7 @@ func takeDamageFromEnemy(damage):
 	hpBar.visible = true
 	hp -= damage
 	hpBar.value = hp
-	if hp < 0 :
+	if hp <= 0 :
 		self.queue_free()
 
 

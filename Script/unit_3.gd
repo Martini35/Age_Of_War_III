@@ -1,19 +1,19 @@
-extends enemy
+extends frend
 
-@onready var hpBar = $TextureProgressBar
 @onready var animacja = $AnimationPlayer
 @onready var attackCooldown = $AttackCooldown
-
+@onready var hpBar = $TextureProgressBar
 
 @onready var attackBool = false
 @onready var canAttac = true
-@onready var enemyS = false
+@onready var frendS = false
 @onready var enemys: Array
 
-@onready var hp = 100
+@onready var hp = 200
+
 
 func _ready():
-	hpBar.visible = false
+	hpBar.max_value = hp
 	hpBar.value = hp
 
 
@@ -25,18 +25,17 @@ func _physics_process(delta):
 
 
 func animactrion():
-	if !attackBool && !enemyS:
-		animacja.play("walk_left")
-		if enemys.size() > 0:
-			animacja.stop()
-		position.x -= 0.5
+	if !attackBool && !frendS:
+		animacja.play("walk_right")
+		
+		position.x += 0.5
 
 
 func attack():
 	if canAttac && enemys.size() > 0:
 		attackCooldown.start()
 		animacja.play("attack")
-		enemys[0].takeDamageFromEnemy(10)
+		enemys[0].takeDamageFromEnemy(40)
 		attackBool = true
 		canAttac = false
 		
@@ -53,18 +52,19 @@ func takeDamageFromEnemy(damage):
 
 
 func _on_mele_attack_body_entered(body):
-	if body is frend:
+	if body is enemy:
 		enemys.append(body)
 		
-	if body is enemy:
-		enemyS = true
+	if body is frend:
+		frendS = true
 
 
 func _on_mele_attack_body_exited(body):
-	if body is frend:
+	if body is enemy:
 		enemys.erase(body)
 		if enemys.size() == 0:
 			attackBool = false
 	
-	if body is enemy:
-		enemyS = false
+	if body is frend:
+		frendS = false
+

@@ -151,15 +151,17 @@ collision_priority = 5.0
 priority = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleAttack"]
+process_priority = 10
+process_physics_priority = 10
 position = Vector2(15, -7)
 shape = SubResource("RectangleShape2D_xc1oj")
+
+[node name="AttackCooldown" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3m0ip")
 }
-
-[node name="AttackCooldwon" type="Timer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 visible = false
