@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cf43vxh18njtf"]
+[gd_scene load_steps=24 format=3 uid="uid://cf43vxh18njtf"]
 
 [ext_resource type="Script" path="res://Script/gui.gd" id="1_8t15x"]
 [ext_resource type="Texture2D" uid="uid://b17eibv1ff0xn" path="res://Images/Character/unit_1.png" id="2_8388v"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cftrgghpy28kq" path="res://Images/UI/Button1.png" id="5_800nm"]
 [ext_resource type="Texture2D" uid="uid://dxhpw5fhkspw0" path="res://Images/Character/unit_2.png" id="6_6tkai"]
 [ext_resource type="Texture2D" uid="uid://pb6h4jhfx57h" path="res://Images/Character/unit_3_art.png" id="7_ucy0l"]
+[ext_resource type="FontFile" uid="uid://dsi2dqlf8tsph" path="res://Images/NormalFont.ttf" id="8_1pleu"]
+[ext_resource type="Texture2D" uid="uid://fnx4y1tj1310" path="res://Images/UI/Coin2.png" id="9_sdaos"]
+[ext_resource type="Texture2D" uid="uid://deqna6iks4mte" path="res://Images/UI/Beaf.png" id="10_bqvfk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d87p1"]
 
@@ -85,6 +88,42 @@ patch_margin_bottom = 20
 [node name="Timer_1" type="Timer" parent="Unit_1"]
 one_shot = true
 
+[node name="Gold" type="Label" parent="Unit_1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 39.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="GoldImg" type="Sprite2D" parent="Unit_1"]
+position = Vector2(7, 14)
+texture = ExtResource("9_sdaos")
+hframes = 4
+
+[node name="Food" type="Label" parent="Unit_1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 52.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="FoodImg" type="Sprite2D" parent="Unit_1"]
+position = Vector2(7, 27)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("10_bqvfk")
+
 [node name="Unit_2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 83.0
@@ -126,6 +165,40 @@ patch_margin_bottom = 20
 
 [node name="Timer_2" type="Timer" parent="Unit_2"]
 one_shot = true
+
+[node name="Gold" type="Label" parent="Unit_2"]
+offset_left = 16.0
+offset_top = 5.0
+offset_right = 67.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="GoldImg" type="Sprite2D" parent="Unit_2"]
+position = Vector2(10, 16)
+texture = ExtResource("9_sdaos")
+hframes = 4
+
+[node name="Food" type="Label" parent="Unit_2"]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 67.0
+offset_bottom = 54.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="FoodImg" type="Sprite2D" parent="Unit_2"]
+position = Vector2(10, 29)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("10_bqvfk")
 
 [node name="Unit_3" type="Button" parent="."]
 layout_mode = 0
@@ -170,9 +243,88 @@ patch_margin_bottom = 20
 [node name="Timer_3" type="Timer" parent="Unit_3"]
 one_shot = true
 
-[connection signal="pressed" from="Unit_1" to="." method="_on_button_pressed"]
+[node name="Gold" type="Label" parent="Unit_3"]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 67.0
+offset_bottom = 44.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="GoldImg" type="Sprite2D" parent="Unit_3"]
+position = Vector2(10, 19)
+texture = ExtResource("9_sdaos")
+hframes = 4
+
+[node name="Food" type="Label" parent="Unit_3"]
+offset_left = 16.0
+offset_top = 21.0
+offset_right = 67.0
+offset_bottom = 57.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "123"
+
+[node name="FoodImg" type="Sprite2D" parent="Unit_3"]
+position = Vector2(10, 32)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("10_bqvfk")
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 2
+offset_left = 534.0
+offset_top = 4.0
+offset_right = 628.0
+offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "124"
+horizontal_alignment = 2
+
+[node name="GoldImg" type="Sprite2D" parent="."]
+position = Vector2(624, 21)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("9_sdaos")
+hframes = 4
+
+[node name="Food" type="Label" parent="."]
+layout_mode = 2
+offset_left = 534.0
+offset_top = 25.0
+offset_right = 628.0
+offset_bottom = 61.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_1pleu")
+theme_override_font_sizes/font_size = 27
+text = "124"
+horizontal_alignment = 2
+
+[node name="FoodImg" type="Sprite2D" parent="."]
+position = Vector2(623, 41)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("10_bqvfk")
+
+[connection signal="mouse_entered" from="Unit_1" to="." method="_on_unit_1_mouse_entered"]
+[connection signal="mouse_exited" from="Unit_1" to="." method="_on_unit_1_mouse_exited"]
+[connection signal="pressed" from="Unit_1" to="." method="_on_unit_1_pressed"]
 [connection signal="timeout" from="Unit_1/Timer_1" to="." method="_on_timer_1_timeout"]
+[connection signal="mouse_entered" from="Unit_2" to="." method="_on_unit_2_mouse_entered"]
+[connection signal="mouse_exited" from="Unit_2" to="." method="_on_unit_2_mouse_exited"]
 [connection signal="pressed" from="Unit_2" to="." method="_on_unit_2_pressed"]
 [connection signal="timeout" from="Unit_2/Timer_2" to="." method="_on_timer_2_timeout"]
+[connection signal="mouse_entered" from="Unit_3" to="." method="_on_unit_3_mouse_entered"]
+[connection signal="mouse_exited" from="Unit_3" to="." method="_on_unit_3_mouse_exited"]
 [connection signal="pressed" from="Unit_3" to="." method="_on_unit_3_pressed"]
 [connection signal="timeout" from="Unit_3/Timer_3" to="." method="_on_timer_3_timeout"]

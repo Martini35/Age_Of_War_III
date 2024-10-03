@@ -2408,6 +2408,7 @@ layer_4/z_index = 3
 layer_4/tile_data = PackedInt32Array(524305, 3, 0, 458769, 4, 0, 393233, 4, 0, 327697, 4, 0, 262161, 4, 0, -65519, 6, 0, 196625, 4, 0, 131089, 4, 0, 65553, 4, 0, 17, 4, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
 position = Vector2(341, 0)
 
 [node name="GUI" parent="Camera2D" instance=ExtResource("9_l5agl")]
