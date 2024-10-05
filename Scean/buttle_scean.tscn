@@ -2384,6 +2384,7 @@ sources/7 = SubResource("TileSetAtlasSource_xleu8")
 script = ExtResource("1_n1ikg")
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_l08cq")

@@ -167,6 +167,7 @@ patch_margin_bottom = 20
 one_shot = true
 
 [node name="Gold" type="Label" parent="Unit_2"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 5.0
 offset_right = 67.0
@@ -184,6 +185,7 @@ texture = ExtResource("9_sdaos")
 hframes = 4
 
 [node name="Food" type="Label" parent="Unit_2"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 18.0
 offset_right = 67.0
@@ -244,6 +246,7 @@ patch_margin_bottom = 20
 one_shot = true
 
 [node name="Gold" type="Label" parent="Unit_3"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 67.0
@@ -261,6 +264,7 @@ texture = ExtResource("9_sdaos")
 hframes = 4
 
 [node name="Food" type="Label" parent="Unit_3"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 21.0
 offset_right = 67.0

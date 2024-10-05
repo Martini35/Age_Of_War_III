@@ -34,6 +34,7 @@ signal button_1_preset
 signal button_2_preset
 signal button_3_preset
 
+
 func _ready():
 	Unit1GoldLabel.visible = false
 	Unit1FoodLabel.visible = false
@@ -58,6 +59,9 @@ func _ready():
 	
 	Unit3GoldLabel.text = str(unitGoldCost[2])
 	Unit3FoodLabel.text = str(unitFoodCost[2])
+	
+	Global.connect("res", Callable(self, "_add_resours"))
+
 
 func _process(delta):
 	CooldownUnit1.value = Unit1Timer.time_left * 100
@@ -151,11 +155,6 @@ func _on_timer_3_timeout():
 	timer3 = true
 
 
-func addResources(getGold, getFood):
-	gold += getGold
-	food += getFood
-	
-	
 func buyUnit(buyGold, buyFood):
 	gold -= buyGold
 	food -= buyFood
@@ -201,3 +200,8 @@ func _on_unit_3_mouse_exited():
 	Unit3FoodLabel.visible = false
 	Unit3GoldImg.visible = false
 	Unit3FoodImg.visible = false
+
+
+func _add_resours(getGold, getFood):
+	gold += getGold
+	food += getFood

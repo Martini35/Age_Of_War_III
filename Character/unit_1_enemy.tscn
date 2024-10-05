@@ -174,5 +174,9 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_5jibv")
 texture_progress = ExtResource("5_ky7wo")
 
+[node name="ResourcesSpawn" type="Marker2D" parent="."]
+z_index = 5
+position = Vector2(0, -14)
+
 [connection signal="body_entered" from="MeleAttack" to="." method="_on_mele_attack_body_entered"]
 [connection signal="body_exited" from="MeleAttack" to="." method="_on_mele_attack_body_exited"]

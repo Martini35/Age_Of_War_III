@@ -5,6 +5,7 @@ extends Node2D
 @onready var RightSpawn = $RightSpawn
 @onready var gui = $Camera2D/GUI
 
+
 var unit1 = preload("res://Character/unit_1.tscn")
 var unit2 = preload("res://Character/unit_2.tscn")
 var unit3 = preload("res://Character/unit_3.tscn")
@@ -28,7 +29,7 @@ func _process(delta):
 		
 	if canSpawn:
 		spawnEnemy()
-		
+
 
 func _on_gui_button_1_preset():
 	var unit = unit1.instantiate()
