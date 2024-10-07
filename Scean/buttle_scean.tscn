@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://u45oxvgg8rhl"]
+[gd_scene load_steps=22 format=3 uid="uid://u45oxvgg8rhl"]
 
 [ext_resource type="Script" path="res://Script/buttle_scean.gd" id="1_n1ikg"]
 [ext_resource type="Texture2D" uid="uid://bym1l7oy5alfb" path="res://Images/TilesetFloor.png" id="1_wa7b3"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bftup4iymglmv" path="res://Images/TopSheet16x16.png" id="7_jpd7m"]
 [ext_resource type="PackedScene" uid="uid://cf43vxh18njtf" path="res://GUI/gui.tscn" id="9_l5agl"]
 [ext_resource type="Texture2D" uid="uid://dhb3dgj0r7tou" path="res://Images/Clouds V2.png" id="9_y36rp"]
+[ext_resource type="PackedScene" uid="uid://lfk7vq1i6tjr" path="res://Scean/left_base.tscn" id="11_sicqn"]
+[ext_resource type="PackedScene" uid="uid://c57k0awurn37x" path="res://Scean/right_base.tscn" id="12_inttn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3w8h2"]
 texture = ExtResource("1_wa7b3")
@@ -2384,7 +2386,6 @@ sources/7 = SubResource("TileSetAtlasSource_xleu8")
 script = ExtResource("1_n1ikg")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_l08cq")
@@ -2430,6 +2431,14 @@ position = Vector2(44, -16)
 
 [node name="RightSpawn" type="Marker2D" parent="."]
 position = Vector2(931, -16)
+
+[node name="LeftBase" parent="." instance=ExtResource("11_sicqn")]
+z_index = 1
+position = Vector2(93, -15)
+
+[node name="RightBase" parent="." instance=ExtResource("12_inttn")]
+z_index = 2
+position = Vector2(864, -16)
 
 [connection signal="button_1_preset" from="Camera2D/GUI" to="." method="_on_gui_button_1_preset"]
 [connection signal="button_2_preset" from="Camera2D/GUI" to="." method="_on_gui_button_2_preset"]

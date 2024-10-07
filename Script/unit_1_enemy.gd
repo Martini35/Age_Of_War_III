@@ -61,6 +61,9 @@ func _on_mele_attack_body_entered(body):
 	if body is frend:
 		enemys.append(body)
 		
+	if body is  LeftBase:
+		enemys.append(body)
+		
 	if body is enemy:
 		enemyS = true
 

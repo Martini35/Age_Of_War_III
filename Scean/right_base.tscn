@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c57k0awurn37x"]
+
+[ext_resource type="Script" path="res://Script/right_base.gd" id="1_ovlr2"]
+[ext_resource type="Texture2D" uid="uid://bs618ircseuvh" path="res://Images/UI/healthbarUnder.png" id="1_p3i6t"]
+[ext_resource type="Texture2D" uid="uid://ch2hwm4w0yg71" path="res://Images/UI/healthbarProgress.png" id="2_7ej7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4myau"]
+size = Vector2(20, 68)
+
+[node name="RightBase" type="CharacterBody2D"]
+script = ExtResource("1_ovlr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, -34)
+shape = SubResource("RectangleShape2D_4myau")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -7.0
+offset_top = 11.0
+offset_right = 84.0
+offset_bottom = 26.0
+value = 41.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("1_p3i6t")
+texture_progress = ExtResource("2_7ej7b")

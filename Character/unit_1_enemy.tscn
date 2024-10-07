@@ -60,7 +60,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [-1]
 }
 
 [sub_resource type="Animation" id="Animation_mshw2"]
@@ -118,6 +118,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 6, 10, 14, 10]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wepon:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gitv4"]
 _data = {
@@ -137,7 +149,7 @@ vframes = 7
 frame = 2
 
 [node name="Wepon" type="Sprite2D" parent="."]
-z_index = 1
+z_index = -1
 position = Vector2(-11, -7)
 rotation = -1.1973
 texture = ExtResource("3_c2n2g")

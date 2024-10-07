@@ -166,7 +166,6 @@ position = Vector2(17.5, -11)
 shape = SubResource("RectangleShape2D_7q0eb")
 
 [node name="BoxBody" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, -11)
 shape = SubResource("RectangleShape2D_p1fka")
 
